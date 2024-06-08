@@ -1,33 +1,32 @@
 <?php
 
 $curl = curl_init('http://YTMDESKTOP IP:9863');
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 $page = curl_exec($curl);
-if(curl_errno($curl)):
-        echo 'Erro: ' . curl_error($curl);
-        exit;
-endif;
+if (curl_errno($curl)) {
+    echo 'Error: ' . curl_error($curl);
+    exit;
+}
 curl_close($curl);
 
 $DOM = new DOMDocument;
 libxml_use_internal_errors(true);
 
-if(!$DOM->loadHTML($page)):
-        $erros = null;
-        foreach (libxml_get_errors() as $error):
-                $errors.= $error->message."\r\n"; 
-        endforeach;
+if (!$DOM->loadHTML($page)) {
+    $errors = '';
+    foreach (libxml_get_errors() as $error) {
+        $errors .= $error->message . "\r\n";
+    }
 
-        libxml_clear_errors();
-        print "LibXML Erros: \r\n$erros";
-        return;
-endif;
+    libxml_clear_errors();
+    print "LibXML Errors: \r\n$errors";
+    return;
+}
 
 $Xpath = new DOMXPath($DOM);
 
 $content = $Xpath->query('//*[@class="truncate"]')->item(0);
-// echo utf8_decode($content->textContent);
 ?>
 <html>
 <head>
@@ -42,8 +41,6 @@ p {
   font-size: 50px;
   color: #ff7200;
 }
-
-
 </style>
 </head>
 
@@ -51,8 +48,8 @@ p {
 <br>
 <br>
 <p>
-Nyt Soi:<br> 
-<?php echo utf8_decode($content->textContent); ?>
+Nyt Soi:<br>
+<?php echo htmlspecialchars($content->textContent, ENT_QUOTES, 'UTF-8'); ?>
 </p>
 </body>
 </html>
