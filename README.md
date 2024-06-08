@@ -5,9 +5,9 @@
 ### YTMD-Musiikki-to-OBS.php    
 Youtube Music Desktop ohjelmasta saadaan API:n kautta "nyt soiva" musiikki esim OBS Studioon.     
    
-Hyödynnän YTMDesktop Remote Controlleria ja Raspberry PI / Linux konetta (jossa on Nginx/Apache, PHP7.4, PHP7.4-XML, PHP7.4-JSON, PHP7.4-CURL paketit) josta voi OBS:n Selaimella hakea sivun.     
+Hyödynnän YTMDesktop Remote Controlleria ja Raspberry PI / Linux konetta (jossa on Nginx/Apache, PHP8.1, PHP8.1-XML, PHP8.1-JSON, PHP8.1-CURL paketit) josta voi OBS:n Selaimella hakea sivun.     
      
-HUOM! Tämä toimii Windowsissa myös. Mutta tarvitset sille [XAMPP ohjelmiston](https://www.apachefriends.org/index.html) jossa on PHP7.4, PHP7.4-XML, PHP7.4-JSON, PHP7.4-CURL paketit. 
+HUOM! Tämä toimii Windowsissa myös. Mutta tarvitset sille [XAMPP ohjelmiston](https://www.apachefriends.org/index.html) jossa on PHP8.1, PHP8.1-XML, PHP8.1-JSON, PHP8.1-CURL-CURL paketit. 
     
 ![YTMD_sivu](./img/YTMD_Esimerkki.PNG?raw=true)    
 Miltä näyttää OBS:ssä      
